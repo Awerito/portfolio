@@ -160,17 +160,19 @@ const TechCategory = ({ title, technologies }) => {
 
 const TechLists = () => {
   return (
-    <Grid>
-      <Grid.Col span={6}>
-        <TechCategory
-          title="Frontend Technologies"
-          technologies={techFrontend}
-        />
-      </Grid.Col>
-      <Grid.Col span={6}>
-        <TechCategory title="Backend Technologies" technologies={techBackend} />
-      </Grid.Col>
-    </Grid>
+    <Group align="stretch" style={{ marginTop: 20 }}>
+      <Title order={2} style={{ textDecoration: "underline" }}>
+        Tech Stack
+      </Title>
+      <Grid>
+        <Grid.Col span={6}>
+          <TechCategory title="Frontend" technologies={techFrontend} />
+        </Grid.Col>
+        <Grid.Col span={6}>
+          <TechCategory title="Backend" technologies={techBackend} />
+        </Grid.Col>
+      </Grid>
+    </Group>
   );
 };
 
