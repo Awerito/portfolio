@@ -1,4 +1,4 @@
-# React + Mantine Template
+# Portfolio
 
 ![GitHub package.json dev/peer/optional dependency version](https://img.shields.io/github/package-json/dependency-version/awerito/react-mantine-template/dev/vite?logo=vite)
 ![GitHub package.json prod dependency version](https://img.shields.io/github/package-json/dependency-version/awerito/react-mantine-template/%40mantine%2Fcore?logo=mantine)
@@ -26,17 +26,6 @@ Make sure you have the following installed before getting started:
 
 - [Node.js](https://nodejs.org/) >= 22.3.x
 - [npm](https://www.npmjs.com/) >= 10.8.x
-
-## Template Usage
-
-This template provides a basic structure for building React applications with
-Mantine. You can start by modifying the existing components or creating new
-ones to build your application.
-
-1. Click on the `Use this template` button on the top right of the github
-   repository.
-2. Click on the `Create a new repository` button.
-3. Clone the new repository to your local machine.
 
 ## Installation
 
@@ -92,9 +81,3 @@ Runs the production build locally to preview the app. Open
 ├── README.md             # Project information
 └── vite.config.js        # Vite configuration
 ```
-
-## Customization
-
-Feel free to modify the structure, components, and styling according to your
-needs. Mantine's documentation is an excellent resource for customizing the UI
-components to fit your project.
