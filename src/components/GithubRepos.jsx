@@ -33,13 +33,20 @@ const GitHubRepos = () => {
         <Title order={2} style={{ textDecoration: "underline" }}>
           My Public Repositories
         </Title>
-        <Loader style={{ margin: "auto" }} />;
+        <Loader style={{ margin: "auto" }} />
       </Stack>
     );
   }
 
   if (error) {
-    return <Text c="red">{error}</Text>;
+    return (
+      <Stack spacing="md">
+        <Title order={2} style={{ textDecoration: "underline" }}>
+          My Public Repositories
+        </Title>
+        <Text c="red">{error}</Text>
+      </Stack>
+    );
   }
 
   return (
