@@ -160,9 +160,9 @@ const TechCategory = ({ title, technologies }) => {
 
 const TechLists = () => {
   return (
-    <Group align="stretch" style={{ marginTop: 20 }}>
+    <>
       <Title order={2} style={{ textDecoration: "underline" }}>
-        Tech Stack
+        Technologies Stack
       </Title>
       <Grid>
         <Grid.Col span={6}>
@@ -172,7 +172,7 @@ const TechLists = () => {
           <TechCategory title="Backend" technologies={techBackend} />
         </Grid.Col>
       </Grid>
-    </Group>
+    </>
   );
 };
 
