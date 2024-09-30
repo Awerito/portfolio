@@ -6,8 +6,7 @@ import {
   Stack,
   List,
   Text,
-  Anchor,
-  ThemeIcon,
+  ActionIcon,
 } from "@mantine/core";
 import {
   IconBrandGithub,
@@ -21,25 +20,8 @@ export default function SelfCard() {
       <Stack spacing="xs" style={{ flex: 1, textAlign: "left" }}>
         <Group position="apart" style={{ width: "100%" }} align="center">
           <Title order={1} style={{ marginBottom: 0 }}>
-            Diego Muñoz
+            Diego Muñoz (Awerito)
           </Title>
-          <Group spacing="xs">
-            <Anchor href="https://github.com/awerito" target="_blank">
-              <ThemeIcon size="md" variant="outline">
-                <IconBrandGithub size={20} />
-              </ThemeIcon>
-            </Anchor>
-            <Anchor href="https://linkedin.com/in/awerito" target="_blank">
-              <ThemeIcon size="md" variant="outline">
-                <IconBrandLinkedin size={20} />
-              </ThemeIcon>
-            </Anchor>
-            <Anchor href="https://instagram.com/aweritoh" target="_blank">
-              <ThemeIcon size="md" variant="outline">
-                <IconBrandInstagram size={20} />
-              </ThemeIcon>
-            </Anchor>
-          </Group>
         </Group>
         <Text size="sm" sx={{ color: "gray" }}>
           Passionate software developer with a knack for solving complex
@@ -53,13 +35,38 @@ export default function SelfCard() {
           <List.Item>🛠️ Python, React, Docker, and More...</List.Item>
         </List>
       </Stack>
-      <Avatar
-        src={profile}
-        alt="Diego Muñoz"
-        size={150}
-        radius="100%"
-        style={{ marginLeft: 20 }}
-      />
+      <Stack align="center" style={{ marginLeft: 20 }}>
+        <Avatar src={profile} alt="Diego Muñoz" size={150} radius="100%" />
+        <Group justify="center" gap="xs">
+          <ActionIcon
+            component="a"
+            href="https://github.com/awerito"
+            target="_blank"
+            variant="outline"
+            color="pink"
+          >
+            <IconBrandGithub size={20} />
+          </ActionIcon>
+          <ActionIcon
+            component="a"
+            href="https://linkedin.com/in/awerito"
+            target="_blank"
+            variant="outline"
+            color="pink"
+          >
+            <IconBrandLinkedin size={20} />
+          </ActionIcon>
+          <ActionIcon
+            component="a"
+            href="https://instagram.com/aweritoh"
+            target="_blank"
+            variant="outline"
+            color="pink"
+          >
+            <IconBrandInstagram size={20} />
+          </ActionIcon>
+        </Group>
+      </Stack>
     </Group>
   );
 }
