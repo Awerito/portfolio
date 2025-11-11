@@ -2,28 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  color-scheme: light;
-}
+@layer base {
+  :root {
+    color-scheme: light;
+  }
 
-body {
-  @apply min-h-screen bg-slate-950 text-slate-100 font-body antialiased;
-  background-image: theme('backgroundImage.mesh');
-  background-attachment: fixed;
-}
+  :root.dark {
+    color-scheme: dark;
+  }
 
-a {
-  @apply text-brand-300 transition hover:text-brand-200;
-}
+  body {
+    @apply min-h-screen bg-rose-50 font-body text-rose-950 antialiased transition-colors duration-300 ease-out;
+    background-image: theme('backgroundImage.lightMesh');
+    background-attachment: fixed;
+  }
 
-.section-card {
-  @apply rounded-3xl bg-slate-900/70 p-8 shadow-glow backdrop-blur;
-}
+  .dark body {
+    @apply bg-slate-950 text-rose-50;
+    background-image: theme('backgroundImage.darkMesh');
+  }
 
-.section-heading {
-  @apply mb-6 text-3xl font-display tracking-tight text-white;
-}
+  a {
+    @apply text-brand-600 transition hover:text-brand-500 dark:text-brand-200 dark:hover:text-brand-100;
+  }
 
-.section-subheading {
-  @apply mb-2 text-sm uppercase tracking-[0.3em] text-brand-200/80;
+  .section-card {
+    @apply rounded-3xl border border-brand-100/60 bg-white/80 p-8 shadow-soft backdrop-blur transition-colors duration-300 dark:border-white/10 dark:bg-slate-900/70;
+  }
+
+  .section-heading {
+    @apply mb-6 text-3xl font-display tracking-tight text-rose-950 dark:text-white;
+  }
+
+  .section-subheading {
+    @apply mb-2 text-sm uppercase tracking-[0.3em] text-brand-500/80 dark:text-brand-200/80;
+  }
 }

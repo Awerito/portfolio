@@ -5,15 +5,19 @@
 ![GitHub package.json prod dependency version](https://img.shields.io/github/package-json/dependency-version/awerito/react-mantine-template/react?logo=react)
 [![GitHub License](https://img.shields.io/github/license/Awerito/react-mantine-template?logo=github)](./LICENSE)
 
-This is a template for projects using [React](https://reactjs.org/) and
-[Mantine](https://mantine.dev/) with JavaScript. It provides a solid,
-customizable foundation for building modern web applications with ease.
+This is a template for projects using [React](https://reactjs.org/),
+[Mantine](https://mantine.dev/), and
+[Tailwind CSS](https://tailwindcss.com/) with JavaScript. It provides a
+solid, customizable foundation for building modern web applications with
+ease.
 
 ## Features
 
 - **React**: A popular JavaScript library for building user interfaces.
 - **Mantine**: A fully featured component library with all the tools you need
   to build a modern, user-friendly UI quickly.
+- **Tailwind CSS**: Utility-first styling to complement Mantine components and
+  streamline custom design work.
 - **JavaScript (ES6+)**: Modern JavaScript setup to keep your code efficient
   and clean.
 - **Pre-configured tools**: Includes basic configurations for ESLint, Prettier,
