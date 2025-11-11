@@ -41,14 +41,14 @@ const GitHubRepos = () => {
       <h2 className="section-heading">My Public Repositories</h2>
 
       {loading && (
-        <div className="flex flex-col items-center gap-3 py-12 text-sm text-rose-900/70 dark:text-rose-100/80">
+        <div className="flex flex-col items-center gap-3 py-12 text-sm text-slate-600 dark:text-slate-200">
           <span className="h-12 w-12 animate-spin rounded-full border-2 border-brand-400 border-t-transparent" />
           <p>Fetching projects from GitHub...</p>
         </div>
       )}
 
       {!loading && error && (
-        <div className="rounded-2xl border border-rose-400/60 bg-rose-100/70 px-4 py-3 text-sm text-rose-900 dark:border-rose-400/40 dark:bg-rose-500/10 dark:text-rose-100">
+        <div className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-900 dark:border-red-500/50 dark:bg-red-500/10 dark:text-red-100">
           {error}
         </div>
       )}
@@ -58,11 +58,11 @@ const GitHubRepos = () => {
           {repos.map((repo) => (
             <article
               key={repo.id}
-              className="group flex h-full flex-col justify-between rounded-2xl border border-brand-100/60 bg-white/70 p-6 transition hover:border-brand-300/60 hover:bg-brand-50/80 dark:border-white/5 dark:bg-slate-900/80 dark:hover:bg-slate-900"
+              className="group flex h-full flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-brand-200 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-brand-300/60 dark:hover:bg-slate-800"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between gap-2">
-                  <h3 className="text-xl font-display text-rose-950 dark:text-white">
+                  <h3 className="text-xl font-display text-slate-900 dark:text-white">
                     {repo.name}
                   </h3>
                   <a
@@ -75,20 +75,20 @@ const GitHubRepos = () => {
                     <IconArrowUpRight size={16} />
                   </a>
                 </div>
-                <p className="text-sm leading-relaxed text-rose-900/80 dark:text-rose-100/80">
+                <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-200">
                   {repo.description || "No description provided."}
                 </p>
               </div>
-              <div className="mt-6 flex flex-wrap items-center gap-4 text-xs font-medium text-rose-900/70 dark:text-rose-100/80">
-                <span className="flex items-center gap-1 rounded-full bg-brand-50/80 px-3 py-1 dark:bg-white/5">
+              <div className="mt-6 flex flex-wrap items-center gap-4 text-xs font-medium text-slate-600 dark:text-slate-200">
+                <span className="flex items-center gap-1 rounded-full border border-slate-200 bg-white px-3 py-1 dark:border-slate-700 dark:bg-slate-800">
                   <IconGitBranch size={16} />
                   {repo.default_branch}
                 </span>
-                <span className="flex items-center gap-1 rounded-full bg-brand-50/80 px-3 py-1 dark:bg-white/5">
+                <span className="flex items-center gap-1 rounded-full border border-slate-200 bg-white px-3 py-1 dark:border-slate-700 dark:bg-slate-800">
                   <IconStar size={16} />
                   {repo.stargazers_count}
                 </span>
-                <span className="flex items-center gap-1 rounded-full bg-brand-50/80 px-3 py-1 dark:bg-white/5">
+                <span className="flex items-center gap-1 rounded-full border border-slate-200 bg-white px-3 py-1 dark:border-slate-700 dark:bg-slate-800">
                   <IconGitFork size={16} />
                   {repo.forks_count}
                 </span>

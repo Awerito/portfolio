@@ -16,13 +16,13 @@ export default function BackgroundExp() {
     <section className="section-card">
       <p className="section-subheading">Trayectoria</p>
       <h2 className="section-heading">Background &amp; Experience</h2>
-      <div className="grid gap-3 text-base text-rose-900/80 dark:text-rose-50/90 md:grid-cols-2">
+      <div className="grid gap-3 text-base text-slate-700 dark:text-slate-200 md:grid-cols-2">
         {experiences.map((item) => (
           <article
             key={item}
-            className="flex items-start gap-3 rounded-2xl bg-white/80 px-4 py-3 ring-1 ring-brand-100/60 transition dark:bg-rose-950/60 dark:ring-white/5"
+            className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 transition dark:border-slate-700 dark:bg-slate-900"
           >
-            <span className="mt-1 text-brand-500 dark:text-brand-200">
+            <span className="mt-1 text-brand-600 dark:text-brand-200">
               <IconCircleCheck size={20} />
             </span>
             <p className="leading-relaxed">{item}</p>
