@@ -4,6 +4,7 @@ import {
   IconBrandDjango,
   IconBrandJavascript,
   IconBrandMantine,
+  IconBrandTailwind,
   IconBrandMongodb,
   IconBrandNodejs,
   IconBrandPython,
@@ -47,7 +48,13 @@ const techFrontend = [
     name: "Mantine",
     type: "UI Library",
     color: "#5799eb",
-    icon: () => <IconBrandMantine className={iconClassName} />, 
+    icon: () => <IconBrandMantine className={iconClassName} />,
+  },
+  {
+    name: "Tailwind CSS",
+    type: "Styling",
+    color: "#38bdf8",
+    icon: () => <IconBrandTailwind className={iconClassName} />,
   },
   {
     name: "Node.js",
@@ -136,14 +143,14 @@ const techBackend = [
 
 const TechPill = ({ name, color, Icon }) => (
   <span
-    className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wide text-rose-900 dark:text-rose-50"
+    className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-700 dark:text-slate-100"
     style={{
       borderColor: `${color}40`,
       backgroundColor: `${color}18`,
     }}
   >
     <span
-      className="flex items-center justify-center rounded-full bg-white/60 p-1 text-xs dark:bg-rose-950/70"
+      className="flex items-center justify-center rounded-full bg-white/70 p-1 text-xs dark:bg-slate-900/70"
       style={{ color }}
     >
       <Icon />
@@ -157,10 +164,10 @@ const TechCategory = ({ title, technologies }) => {
 
   return (
     <div className="space-y-6">
-      <h3 className="text-2xl font-display text-rose-950 dark:text-white">{title}</h3>
+      <h3 className="text-2xl font-display text-slate-900 dark:text-white">{title}</h3>
       {categories.map((category) => (
         <div key={category} className="space-y-3">
-          <h4 className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-500/80 dark:text-brand-200/80">
+          <h4 className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-600/80 dark:text-brand-200/80">
             {category}
           </h4>
           <div className="flex flex-wrap gap-3">

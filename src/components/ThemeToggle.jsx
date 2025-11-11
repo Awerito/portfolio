@@ -8,11 +8,11 @@ export default function ThemeToggle({ theme, onToggle }) {
     <button
       type="button"
       onClick={onToggle}
-      className="group inline-flex items-center gap-2 rounded-full border border-brand-200/60 bg-white/80 px-4 py-2 text-sm font-medium text-rose-900 shadow-sm transition hover:border-brand-300 hover:bg-brand-100/70 dark:border-white/10 dark:bg-white/5 dark:text-rose-50 dark:hover:border-brand-300/60 dark:hover:bg-brand-500/10"
+      className="group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
       aria-pressed={isDark}
       aria-label={isDark ? "Activar tema claro" : "Activar tema oscuro"}
     >
-      <span className="flex items-center justify-center rounded-full bg-brand-100/60 p-1 text-brand-700 transition group-hover:bg-brand-200 dark:bg-brand-500/20 dark:text-brand-200 dark:group-hover:bg-brand-500/30">
+      <span className="flex items-center justify-center rounded-full bg-brand-50 p-1 text-brand-700 transition group-hover:bg-brand-100 dark:bg-brand-500/20 dark:text-brand-100 dark:group-hover:bg-brand-400/30">
         <Icon size={18} />
       </span>
       {isDark ? "Modo claro" : "Modo oscuro"}

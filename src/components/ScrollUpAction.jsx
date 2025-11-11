@@ -23,7 +23,7 @@ export default function ScrollUpAction() {
     <button
       type="button"
       onClick={handleScrollTop}
-      className={`fixed bottom-6 right-6 z-10 flex h-12 w-12 items-center justify-center rounded-full border border-brand-200/70 bg-brand-500 text-white shadow-lg transition hover:bg-brand-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-200/80 dark:border-brand-300/40 dark:bg-brand-500/80 dark:shadow-glow ${
+      className={`fixed bottom-6 right-6 z-10 flex h-12 w-12 items-center justify-center rounded-full border border-slate-300 bg-slate-900 text-white shadow-md transition hover:bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-300/60 dark:border-slate-600 dark:bg-slate-200 dark:text-slate-900 ${
         isVisible
           ? "pointer-events-auto translate-y-0 opacity-100"
           : "pointer-events-none translate-y-4 opacity-0"
