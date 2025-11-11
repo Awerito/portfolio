@@ -136,10 +136,16 @@ const techBackend = [
 
 const TechPill = ({ name, color, Icon }) => (
   <span
-    className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-100"
-    style={{ borderColor: `${color}40`, backgroundColor: `${color}15` }}
+    className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wide text-rose-900 dark:text-rose-50"
+    style={{
+      borderColor: `${color}40`,
+      backgroundColor: `${color}18`,
+    }}
   >
-    <span className="flex items-center justify-center rounded-full bg-slate-900/50 p-1" style={{ color }}>
+    <span
+      className="flex items-center justify-center rounded-full bg-white/60 p-1 text-xs dark:bg-rose-950/70"
+      style={{ color }}
+    >
       <Icon />
     </span>
     {name}
@@ -151,10 +157,10 @@ const TechCategory = ({ title, technologies }) => {
 
   return (
     <div className="space-y-6">
-      <h3 className="text-2xl font-display text-white">{title}</h3>
+      <h3 className="text-2xl font-display text-rose-950 dark:text-white">{title}</h3>
       {categories.map((category) => (
         <div key={category} className="space-y-3">
-          <h4 className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-200/80">
+          <h4 className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-500/80 dark:text-brand-200/80">
             {category}
           </h4>
           <div className="flex flex-wrap gap-3">
