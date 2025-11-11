@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply min-h-screen bg-slate-950 text-slate-100 font-body antialiased;
+  background-image: theme('backgroundImage.mesh');
+  background-attachment: fixed;
+}
+
+a {
+  @apply text-brand-300 transition hover:text-brand-200;
+}
+
+.section-card {
+  @apply rounded-3xl bg-slate-900/70 p-8 shadow-glow backdrop-blur;
+}
+
+.section-heading {
+  @apply mb-6 text-3xl font-display tracking-tight text-white;
+}
+
+.section-subheading {
+  @apply mb-2 text-sm uppercase tracking-[0.3em] text-brand-200/80;
+}
