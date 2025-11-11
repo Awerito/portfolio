@@ -1,60 +1,59 @@
-import { Badge, Grid, Group, Image, Title, rem } from "@mantine/core";
 import {
+  IconBrandBootstrap,
   IconBrandCss3,
   IconBrandDjango,
   IconBrandJavascript,
   IconBrandMantine,
+  IconBrandMongodb,
   IconBrandNodejs,
   IconBrandPython,
   IconBrandReact,
-  IconBrandMongodb,
   IconCalendarEvent,
   IconDatabase,
-  IconBrandBootstrap,
 } from "@tabler/icons-react";
-import pandasLogo from "../assets/pandas.svg";
 import fastapiLogo from "../assets/fastapi.svg";
-import redisLogo from "../assets/redis.svg";
+import pandasLogo from "../assets/pandas.svg";
 import postgresLogo from "../assets/postgres.svg";
+import redisLogo from "../assets/redis.svg";
 
-const iconStyle = { width: rem(12), height: rem(12) };
+const iconClassName = "h-4 w-4";
 
 const techFrontend = [
   {
     name: "JavaScript",
     type: "Language",
     color: "#f0db4f",
-    icon: <IconBrandJavascript style={iconStyle} />,
+    icon: () => <IconBrandJavascript className={iconClassName} />, 
   },
   {
     name: "React",
     type: "Framework",
     color: "#61dafb",
-    icon: <IconBrandReact style={iconStyle} />,
+    icon: () => <IconBrandReact className={iconClassName} />, 
   },
   {
     name: "CSS",
     type: "Styling",
     color: "#2965f1",
-    icon: <IconBrandCss3 style={iconStyle} />,
+    icon: () => <IconBrandCss3 className={iconClassName} />, 
   },
   {
     name: "Bootstrap",
     type: "Styling",
     color: "#7952b3",
-    icon: <IconBrandBootstrap style={iconStyle} />,
+    icon: () => <IconBrandBootstrap className={iconClassName} />, 
   },
   {
     name: "Mantine",
     type: "UI Library",
     color: "#5799eb",
-    icon: <IconBrandMantine style={iconStyle} />,
+    icon: () => <IconBrandMantine className={iconClassName} />, 
   },
   {
     name: "Node.js",
     type: "Runtime",
     color: "#68a063",
-    icon: <IconBrandNodejs style={iconStyle} />,
+    icon: () => <IconBrandNodejs className={iconClassName} />, 
   },
 ];
 
@@ -63,95 +62,108 @@ const techBackend = [
     name: "Python",
     type: "Language",
     color: "#4281b5",
-    icon: <IconBrandPython style={iconStyle} />,
+    icon: () => <IconBrandPython className={iconClassName} />, 
   },
   {
     name: "FastAPI",
     type: "Framework",
     color: "#009485",
-    icon: <Image src={fastapiLogo} style={iconStyle} />,
+    icon: () => (
+      <img src={fastapiLogo} alt="FastAPI" className="h-4 w-4" loading="lazy" />
+    ),
   },
   {
     name: "Django",
     type: "Framework",
     color: "#0a3c29",
-    icon: <IconBrandDjango style={iconStyle} />,
+    icon: () => <IconBrandDjango className={iconClassName} />, 
   },
   {
     name: "MongoDB",
     type: "Database",
     color: "#01ed64",
-    icon: <IconBrandMongodb style={iconStyle} />,
+    icon: () => <IconBrandMongodb className={iconClassName} />, 
   },
   {
     name: "Postgres",
     type: "Database",
     color: "#316691",
-    icon: <Image src={postgresLogo} style={iconStyle} />,
+    icon: () => (
+      <img src={postgresLogo} alt="PostgreSQL" className="h-4 w-4" loading="lazy" />
+    ),
   },
   {
     name: "Redis",
     type: "Database",
     color: "#fe4438",
-    icon: <Image src={redisLogo} style={iconStyle} />,
+    icon: () => (
+      <img src={redisLogo} alt="Redis" className="h-4 w-4" loading="lazy" />
+    ),
   },
   {
     name: "SQLAlchemy",
     type: "ORM",
     color: "#aa1b02",
-    icon: <IconDatabase style={iconStyle} />,
+    icon: () => <IconDatabase className={iconClassName} />, 
   },
   {
     name: "Motor",
     type: "ORM",
     color: "#8dacbf",
-    icon: <IconBrandMongodb style={iconStyle} />,
+    icon: () => <IconBrandMongodb className={iconClassName} />, 
   },
   {
     name: "Pymongo",
     type: "ORM",
     color: "#4ea94b",
-    icon: <IconBrandMongodb style={iconStyle} />,
+    icon: () => <IconBrandMongodb className={iconClassName} />, 
   },
   {
     name: "Pandas",
     type: "Library",
     color: "#120654",
-    icon: <Image src={pandasLogo} style={iconStyle} />,
+    icon: () => (
+      <img src={pandasLogo} alt="Pandas" className="h-4 w-4" loading="lazy" />
+    ),
   },
   {
     name: "APScheduler",
     type: "Library",
     color: "#f0db4f",
-    icon: <IconCalendarEvent style={iconStyle} />,
+    icon: () => <IconCalendarEvent className={iconClassName} />, 
   },
 ];
+
+const TechPill = ({ name, color, Icon }) => (
+  <span
+    className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-100"
+    style={{ borderColor: `${color}40`, backgroundColor: `${color}15` }}
+  >
+    <span className="flex items-center justify-center rounded-full bg-slate-900/50 p-1" style={{ color }}>
+      <Icon />
+    </span>
+    {name}
+  </span>
+);
 
 const TechCategory = ({ title, technologies }) => {
   const categories = [...new Set(technologies.map((tech) => tech.type))];
 
   return (
-    <div>
-      <Title order={3} style={{ marginBottom: "10px" }}>
-        {title}
-      </Title>
+    <div className="space-y-6">
+      <h3 className="text-2xl font-display text-white">{title}</h3>
       {categories.map((category) => (
-        <div key={category} style={{ marginBottom: "15px" }}>
-          <Title order={4}>{category}</Title>
-          <Group spacing="xs">
+        <div key={category} className="space-y-3">
+          <h4 className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-200/80">
+            {category}
+          </h4>
+          <div className="flex flex-wrap gap-3">
             {technologies
               .filter((tech) => tech.type === category)
               .map((tech) => (
-                <Badge
-                  key={tech.name}
-                  variant="outline"
-                  color={tech.color}
-                  leftSection={tech.icon}
-                >
-                  {tech.name}
-                </Badge>
+                <TechPill key={tech.name} name={tech.name} color={tech.color} Icon={tech.icon} />
               ))}
-          </Group>
+          </div>
         </div>
       ))}
     </div>
@@ -160,19 +172,14 @@ const TechCategory = ({ title, technologies }) => {
 
 const TechLists = () => {
   return (
-    <>
-      <Title order={2} style={{ textDecoration: "underline" }}>
-        Technologies Stack
-      </Title>
-      <Grid>
-        <Grid.Col span={6}>
-          <TechCategory title="Frontend" technologies={techFrontend} />
-        </Grid.Col>
-        <Grid.Col span={6}>
-          <TechCategory title="Backend" technologies={techBackend} />
-        </Grid.Col>
-      </Grid>
-    </>
+    <section className="section-card">
+      <p className="section-subheading">Habilidades Clave</p>
+      <h2 className="section-heading">Technologies Stack</h2>
+      <div className="grid gap-10 md:grid-cols-2">
+        <TechCategory title="Frontend" technologies={techFrontend} />
+        <TechCategory title="Backend" technologies={techBackend} />
+      </div>
+    </section>
   );
 };
 

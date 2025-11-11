@@ -1,24 +1,36 @@
-import { Affix, Transition, ActionIcon, rem } from "@mantine/core";
-import { useWindowScroll } from "@mantine/hooks";
 import { IconArrowUp } from "@tabler/icons-react";
+import { useEffect, useState } from "react";
 
 export default function ScrollUpAction() {
-  const [scroll, scrollTo] = useWindowScroll();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      setIsVisible(window.scrollY > 300);
+    };
+
+    toggleVisibility();
+    window.addEventListener("scroll", toggleVisibility);
+
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  const handleScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
-    <Affix position={{ bottom: 20, right: 20 }}>
-      <Transition transition="slide-up" mounted={scroll.y > 0}>
-        {(transitionStyles) => (
-          <ActionIcon
-            style={transitionStyles}
-            onClick={() => scrollTo({ y: 0 })}
-            variant="outline"
-            color="pink"
-          >
-            <IconArrowUp style={{ width: rem(16), height: rem(16) }} />
-          </ActionIcon>
-        )}
-      </Transition>
-    </Affix>
+    <button
+      type="button"
+      onClick={handleScrollTop}
+      className={`fixed bottom-6 right-6 z-10 flex h-12 w-12 items-center justify-center rounded-full border border-brand-300/40 bg-brand-500/80 text-white shadow-lg transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-200/80 ${
+        isVisible
+          ? "pointer-events-auto translate-y-0 opacity-100"
+          : "pointer-events-none translate-y-4 opacity-0"
+      }`}
+      aria-label="Scroll to top"
+    >
+      <IconArrowUp size={20} />
+    </button>
   );
 }

@@ -1,38 +1,34 @@
-import { Title, List } from "@mantine/core";
+import { IconCircleCheck } from "@tabler/icons-react";
+
+const experiences = [
+  "Backend developer building RESTful APIs with FastAPI, Django and Flask.",
+  "Proficient with databases including PostgreSQL, SQLite, MongoDB and Redis.",
+  "Crafting interactive UIs with React and thoughtful component systems.",
+  "Version control expertise and CI/CD automation using GitHub Actions.",
+  "Comfortable orchestrating containers with Docker and Kubernetes.",
+  "Hands-on experience deploying workloads to Microsoft Azure.",
+  "Linux power user who automates workflows with Bash and Python scripts.",
+  "Web scraping enthusiast leveraging Python tooling and regex mastery.",
+];
 
 export default function BackgroundExp() {
   return (
-    <>
-      <Title order={2} style={{ textDecoration: "underline" }}>
-        Background & Experience
-      </Title>
-      <List style={{ marginBottom: 20 }}>
-        <List.Item>
-          Backend developer with experience in building RESTful APIs using
-          FastAPI, Django, and Flask.
-        </List.Item>
-        <List.Item>
-          Proficient with databases like PostgreSQL, SQLite, MongoDB, and Redis.
-        </List.Item>
-        <List.Item>
-          Worked with frontend technologies like React to create interactive
-          UIs.
-        </List.Item>
-        <List.Item>
-          Experience with version control (Git) and CI/CD pipelines (GitHub
-          Actions).
-        </List.Item>
-        <List.Item>
-          Regular use of Docker and Kubernetes for containerization and
-          orchestration.
-        </List.Item>
-        <List.Item>Experience with cloud platforms like Azure.</List.Item>
-        <List.Item>
-          Strong knowledge of Linux systems and scripting with Bash and Python
-          for automation.
-        </List.Item>
-        <List.Item>Skilled in web scraping using Python and regex.</List.Item>
-      </List>
-    </>
+    <section className="section-card">
+      <p className="section-subheading">Trayectoria</p>
+      <h2 className="section-heading">Background &amp; Experience</h2>
+      <div className="grid gap-3 text-base text-slate-200 md:grid-cols-2">
+        {experiences.map((item) => (
+          <article
+            key={item}
+            className="flex items-start gap-3 rounded-2xl bg-slate-800/60 px-4 py-3 ring-1 ring-white/5"
+          >
+            <span className="mt-1 text-brand-200">
+              <IconCircleCheck size={20} />
+            </span>
+            <p className="leading-relaxed">{item}</p>
+          </article>
+        ))}
+      </div>
+    </section>
   );
 }
