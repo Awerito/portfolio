@@ -1,90 +1,72 @@
-import {
-  IconBrandGithub,
-  IconBrandInstagram,
-  IconBrandLinkedin,
-} from "@tabler/icons-react";
+import { MapPin } from "lucide-react";
 import profile from "../assets/imgs/me.jpg";
+import BrandIcon from "./BrandIcon";
 
-const highlights = [
-  "💻 Software Developer",
-  "📊 Math Enthusiast",
-  "📈 Data Scientist",
-  "🛠️ Python, React, Docker & more",
-];
-
-const socialLinks = [
+// `slug`/`iconColor` build a Simple Icons URL (Lucide dropped brand icons).
+const socials = [
   {
     label: "GitHub",
     href: "https://github.com/awerito",
-    icon: IconBrandGithub,
-  },
-  {
-    label: "LinkedIn",
-    href: "https://linkedin.com/in/awerito",
-    icon: IconBrandLinkedin,
+    slug: "github",
+    iconColor: "white",
+    className: "bg-ink text-white",
   },
   {
     label: "Instagram",
     href: "https://instagram.com/aweritoh",
-    icon: IconBrandInstagram,
+    slug: "instagram",
+    iconColor: "111111",
+    className: "bg-cyan",
   },
 ];
 
 export default function SelfCard() {
   return (
-    <section className="section-card">
-      <div className="flex flex-col gap-12 md:flex-row md:items-center">
-        <div className="flex-1 space-y-6">
-          <p className="section-subheading">Hola, soy</p>
-          <h1 className="section-heading text-4xl sm:text-5xl">
-            Diego Muñoz <span className="text-brand-500 dark:text-brand-200">(Awerito)</span>
-          </h1>
-          <p className="max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-200">
-            I craft intuitive digital experiences and resilient backend
-            services. My work blends thoughtful design with solid engineering
-            so that every project feels both delightful and dependable.
-          </p>
-          <ul className="grid gap-2 text-sm text-slate-700 dark:text-slate-200 sm:grid-cols-2">
-            {highlights.map((item) => (
-              <li
-                key={item}
-                className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 dark:border-slate-700 dark:bg-slate-900"
-              >
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-          <div className="flex flex-wrap gap-3">
-            {socialLinks.map(({ label, href, icon: Icon }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
-              >
-                <Icon size={18} />
-                <span>{label}</span>
-              </a>
-            ))}
-          </div>
-        </div>
-        <div className="mx-auto flex flex-col items-center gap-4 md:w-64">
-          <div className="relative">
-            <div className="h-44 w-44 overflow-hidden rounded-full border-4 border-white/80 shadow-md dark:border-slate-700/80">
-              <img
-                src={profile}
-                alt="Portrait of Diego Muñoz"
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </div>
-          </div>
-          <span className="rounded-full border border-brand-200 bg-brand-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-brand-700 dark:border-brand-300/40 dark:bg-brand-500/20 dark:text-brand-50">
-            Backend dev &amp; profesor universitario
-          </span>
+    <div className="relative grid items-center gap-8 md:grid-cols-[1.4fr_1fr]">
+      <div>
+        <p className="nb-sm mb-4 inline-flex items-center gap-1.5 bg-cyan px-3 py-1 text-xs font-bold">
+          <MapPin className="h-3.5 w-3.5" /> Chile
+        </p>
+        <h1 className="display mb-2 text-5xl leading-[0.95] md:text-6xl">
+          DIEGO
+          <br />
+          MUÑOZ
+        </h1>
+        <p className="display mb-5 text-2xl">
+          <span className="nb-sm inline-block bg-pink px-2">(awerito)</span>
+        </p>
+        <p className="mb-6 max-w-md text-base font-medium md:text-lg">
+          Software developer who turns complex problems into elegant, shippable
+          solutions. Backend-heavy, data-curious, always learning.
+        </p>
+        <div className="flex flex-wrap gap-3">
+          {socials.map(({ label, href, slug, iconColor, className }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              className={`nb-sm press flex items-center gap-2 px-4 py-2.5 font-bold ${className}`}
+            >
+              <BrandIcon slug={slug} color={iconColor} className="h-5 w-5" />
+              {label}
+            </a>
+          ))}
         </div>
       </div>
-    </section>
+
+      {/* Avatar with decorative offset block and sticker */}
+      <div className="relative justify-self-center">
+        <div className="nb absolute inset-0 translate-x-4 translate-y-4 bg-lime" />
+        <div className="nb-sm absolute -left-5 top-6 z-20 -rotate-12 bg-yellow px-2 py-1 text-xs font-bold">
+          5+ yrs
+        </div>
+        <img
+          src={profile}
+          alt="Diego Muñoz"
+          className="nb relative h-56 w-56 object-cover"
+        />
+      </div>
+    </div>
   );
 }

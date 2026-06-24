@@ -1,199 +1,59 @@
-import {
-  IconBrandBootstrap,
-  IconBrandCss3,
-  IconBrandDjango,
-  IconBrandJavascript,
-  IconBrandMantine,
-  IconBrandTailwind,
-  IconBrandMongodb,
-  IconBrandNodejs,
-  IconBrandPython,
-  IconBrandReact,
-  IconCalendarEvent,
-  IconDatabase,
-} from "@tabler/icons-react";
-import fastapiLogo from "../assets/fastapi.svg";
-import pandasLogo from "../assets/pandas.svg";
-import postgresLogo from "../assets/postgres.svg";
-import redisLogo from "../assets/redis.svg";
+import SectionHeading from "./SectionHeading";
+import BrandIcon from "./BrandIcon";
 
-const iconClassName = "h-4 w-4";
-
-const techFrontend = [
-  {
-    name: "JavaScript",
-    type: "Language",
-    color: "#f0db4f",
-    icon: () => <IconBrandJavascript className={iconClassName} />, 
-  },
-  {
-    name: "React",
-    type: "Framework",
-    color: "#61dafb",
-    icon: () => <IconBrandReact className={iconClassName} />, 
-  },
-  {
-    name: "CSS",
-    type: "Styling",
-    color: "#2965f1",
-    icon: () => <IconBrandCss3 className={iconClassName} />, 
-  },
-  {
-    name: "Bootstrap",
-    type: "Styling",
-    color: "#7952b3",
-    icon: () => <IconBrandBootstrap className={iconClassName} />, 
-  },
-  {
-    name: "Mantine",
-    type: "UI Library",
-    color: "#5799eb",
-    icon: () => <IconBrandMantine className={iconClassName} />,
-  },
-  {
-    name: "Tailwind CSS",
-    type: "Styling",
-    color: "#38bdf8",
-    icon: () => <IconBrandTailwind className={iconClassName} />,
-  },
-  {
-    name: "Node.js",
-    type: "Runtime",
-    color: "#68a063",
-    icon: () => <IconBrandNodejs className={iconClassName} />, 
-  },
+// `slug` is a Simple Icons brand slug (https://cdn.simpleicons.org/<slug>).
+// Set it to null when no brand logo exists; the chip then shows text only.
+const frontend = [
+  { name: "JavaScript", slug: "javascript" },
+  { name: "React", slug: "react" },
+  { name: "CSS", slug: "css" },
+  { name: "Bootstrap", slug: "bootstrap" },
+  { name: "Mantine", slug: "mantine" },
+  { name: "Node.js", slug: "nodedotjs" },
 ];
 
-const techBackend = [
-  {
-    name: "Python",
-    type: "Language",
-    color: "#4281b5",
-    icon: () => <IconBrandPython className={iconClassName} />, 
-  },
-  {
-    name: "FastAPI",
-    type: "Framework",
-    color: "#009485",
-    icon: () => (
-      <img src={fastapiLogo} alt="FastAPI" className="h-4 w-4" loading="lazy" />
-    ),
-  },
-  {
-    name: "Django",
-    type: "Framework",
-    color: "#0a3c29",
-    icon: () => <IconBrandDjango className={iconClassName} />, 
-  },
-  {
-    name: "MongoDB",
-    type: "Database",
-    color: "#01ed64",
-    icon: () => <IconBrandMongodb className={iconClassName} />, 
-  },
-  {
-    name: "Postgres",
-    type: "Database",
-    color: "#316691",
-    icon: () => (
-      <img src={postgresLogo} alt="PostgreSQL" className="h-4 w-4" loading="lazy" />
-    ),
-  },
-  {
-    name: "Redis",
-    type: "Database",
-    color: "#fe4438",
-    icon: () => (
-      <img src={redisLogo} alt="Redis" className="h-4 w-4" loading="lazy" />
-    ),
-  },
-  {
-    name: "SQLAlchemy",
-    type: "ORM",
-    color: "#aa1b02",
-    icon: () => <IconDatabase className={iconClassName} />, 
-  },
-  {
-    name: "Motor",
-    type: "ORM",
-    color: "#8dacbf",
-    icon: () => <IconBrandMongodb className={iconClassName} />, 
-  },
-  {
-    name: "Pymongo",
-    type: "ORM",
-    color: "#4ea94b",
-    icon: () => <IconBrandMongodb className={iconClassName} />, 
-  },
-  {
-    name: "Pandas",
-    type: "Library",
-    color: "#120654",
-    icon: () => (
-      <img src={pandasLogo} alt="Pandas" className="h-4 w-4" loading="lazy" />
-    ),
-  },
-  {
-    name: "APScheduler",
-    type: "Library",
-    color: "#f0db4f",
-    icon: () => <IconCalendarEvent className={iconClassName} />, 
-  },
+const backend = [
+  { name: "Python", slug: "python" },
+  { name: "FastAPI", slug: "fastapi" },
+  { name: "Django", slug: "django" },
+  { name: "MongoDB", slug: "mongodb" },
+  { name: "Postgres", slug: "postgresql" },
+  { name: "Redis", slug: "redis" },
+  { name: "SQLAlchemy", slug: "sqlalchemy" },
+  { name: "Motor", slug: null },
+  { name: "Pymongo", slug: null },
+  { name: "Pandas", slug: "pandas" },
+  { name: "APScheduler", slug: null },
 ];
 
-const TechPill = ({ name, color, Icon }) => (
-  <span
-    className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-700 dark:text-slate-100"
-    style={{
-      borderColor: `${color}40`,
-      backgroundColor: `${color}18`,
-    }}
-  >
-    <span
-      className="flex items-center justify-center rounded-full bg-white/70 p-1 text-xs dark:bg-slate-900/70"
-      style={{ color }}
-    >
-      <Icon />
-    </span>
-    {name}
-  </span>
-);
-
-const TechCategory = ({ title, technologies }) => {
-  const categories = [...new Set(technologies.map((tech) => tech.type))];
-
+function Chips({ techs }) {
   return (
-    <div className="space-y-6">
-      <h3 className="text-2xl font-display text-slate-900 dark:text-white">{title}</h3>
-      {categories.map((category) => (
-        <div key={category} className="space-y-3">
-          <h4 className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-600/80 dark:text-brand-200/80">
-            {category}
-          </h4>
-          <div className="flex flex-wrap gap-3">
-            {technologies
-              .filter((tech) => tech.type === category)
-              .map((tech) => (
-                <TechPill key={tech.name} name={tech.name} color={tech.color} Icon={tech.icon} />
-              ))}
-          </div>
-        </div>
+    <div className="flex flex-wrap gap-2">
+      {techs.map(({ name, slug }) => (
+        <span
+          key={name}
+          className="nb-sm flex items-center gap-1.5 bg-white px-2.5 py-1.5 text-sm font-bold"
+        >
+          {slug && <BrandIcon slug={slug} />}
+          {name}
+        </span>
       ))}
     </div>
   );
-};
+}
 
-const TechLists = () => {
+export default function TechList() {
   return (
-    <section className="section-card">
-      <p className="section-subheading">Habilidades Clave</p>
-      <h2 className="section-heading">Technologies Stack</h2>
-      <div className="grid gap-10 md:grid-cols-2">
-        <TechCategory title="Frontend" technologies={techFrontend} />
-        <TechCategory title="Backend" technologies={techBackend} />
+    <>
+      <SectionHeading number="02" title="Tech Stack" />
+      <div className="mb-4">
+        <p className="mb-2 text-sm font-bold">Frontend</p>
+        <Chips techs={frontend} />
       </div>
-    </section>
+      <div>
+        <p className="mb-2 text-sm font-bold">Backend</p>
+        <Chips techs={backend} />
+      </div>
+    </>
   );
-};
-
-export default TechLists;
+}

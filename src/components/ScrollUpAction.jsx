@@ -1,36 +1,25 @@
-import { IconArrowUp } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
+import { ArrowUp } from "lucide-react";
 
 export default function ScrollUpAction() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      setIsVisible(window.scrollY > 300);
-    };
-
-    toggleVisibility();
-    window.addEventListener("scroll", toggleVisibility);
-
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    const onScroll = () => setVisible(window.scrollY > 0);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleScrollTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  if (!visible) return null;
 
   return (
     <button
       type="button"
-      onClick={handleScrollTop}
-      className={`fixed bottom-6 right-6 z-10 flex h-12 w-12 items-center justify-center rounded-full border border-slate-300 bg-slate-900 text-white shadow-md transition hover:bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-300/60 dark:border-slate-600 dark:bg-slate-200 dark:text-slate-900 ${
-        isVisible
-          ? "pointer-events-auto translate-y-0 opacity-100"
-          : "pointer-events-none translate-y-4 opacity-0"
-      }`}
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label="Scroll to top"
+      className="nb-sm press fixed bottom-5 right-5 z-50 grid h-12 w-12 place-items-center bg-pink"
     >
-      <IconArrowUp size={20} />
+      <ArrowUp className="h-5 w-5" />
     </button>
   );
 }

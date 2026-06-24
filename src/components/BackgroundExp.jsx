@@ -1,34 +1,29 @@
-import { IconCircleCheck } from "@tabler/icons-react";
+import { CheckCircle2 } from "lucide-react";
+import SectionHeading from "./SectionHeading";
 
-const experiences = [
-  "Backend developer building RESTful APIs with FastAPI, Django and Flask.",
-  "Proficient with databases including PostgreSQL, SQLite, MongoDB and Redis.",
-  "Crafting interactive UIs with React and thoughtful component systems.",
-  "Version control expertise and CI/CD automation using GitHub Actions.",
-  "Comfortable orchestrating containers with Docker and Kubernetes.",
-  "Hands-on experience deploying workloads to Microsoft Azure.",
-  "Linux power user who automates workflows with Bash and Python scripts.",
-  "Web scraping enthusiast leveraging Python tooling and regex mastery.",
+const items = [
+  "Backend developer with experience in building RESTful APIs using FastAPI, Django, and Flask.",
+  "Proficient with databases like PostgreSQL, SQLite, MongoDB, and Redis.",
+  "Worked with frontend technologies like React to create interactive UIs.",
+  "Experience with version control (Git) and CI/CD pipelines (GitHub Actions).",
+  "Regular use of Docker and Kubernetes for containerization and orchestration.",
+  "Experience with cloud platforms like Azure.",
+  "Strong knowledge of Linux systems and scripting with Bash and Python for automation.",
+  "Skilled in web scraping using Python and regex.",
 ];
 
 export default function BackgroundExp() {
   return (
-    <section className="section-card">
-      <p className="section-subheading">Trayectoria</p>
-      <h2 className="section-heading">Background &amp; Experience</h2>
-      <div className="grid gap-3 text-base text-slate-700 dark:text-slate-200 md:grid-cols-2">
-        {experiences.map((item) => (
-          <article
-            key={item}
-            className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 transition dark:border-slate-700 dark:bg-slate-900"
-          >
-            <span className="mt-1 text-brand-600 dark:text-brand-200">
-              <IconCircleCheck size={20} />
-            </span>
-            <p className="leading-relaxed">{item}</p>
-          </article>
+    <>
+      <SectionHeading number="01" title="Background & Experience" />
+      <div className="grid gap-3 sm:grid-cols-2">
+        {items.map((item) => (
+          <div key={item} className="nb-sm flex gap-3 bg-white p-4">
+            <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-pink" />
+            <span className="text-sm font-medium">{item}</span>
+          </div>
         ))}
       </div>
-    </section>
+    </>
   );
 }
